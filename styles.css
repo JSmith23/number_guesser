@@ -1,0 +1,16 @@
+header {
+  background-color: #404041;
+  padding: 30px;
+}
+
+#num {
+  color: #ED458B;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+#guess {
+  color: #E6E7E8;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
