@@ -19,11 +19,17 @@
     <header>
       <h1><center><span id="num">Number</span> <span id="guess">Guesser</span></center></h1>
     </header>
-    <form action="/action_page.php">
-      <input type="text" name="fname" placeholder="Enter your guess"><br>
-      <input type="submit" value="Guess">
-      <input type="submit" value="Clear">
-    </form>
+    <div class="center-block">
+      <form action="/action_page.php">
+        <input id="input" type="text" name="fname" placeholder="Enter your guess"><br>
+        <input id="lightup" class="btn" type="submit" value="Guess">
+      <input class="btn" type="submit" value="Clear">
+      </form>
+    </div>
+
+    <footer class="bottom">
+      <input class="btn" type="submit" value="Clear">
+    </footer>
 
     <script src="" async defer></script>
   </body>
