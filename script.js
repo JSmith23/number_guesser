@@ -8,8 +8,37 @@
 // The application should display an error if the guess is outside of the range of possible answers.
 // The clear button should be disabled if there is nothing to clear.
 // The reset button should be disabled if there is nothing to reset.
+let actualNum = randomNumber();
 
-let actualNum, userGuess;
-actualNum = Math.floor(Math.random() * 101);
-userGuess = document.getElementById('input').value
-document.querySelector('.player-guess').innerHTML = `<h1> Your last guess was</h1><h2>${userGuess}</h2>`
+function randomNumber(){
+  return Math.floor(Math.random() * 101);
+}
+
+function findCorrectGuess(actualNum,userGuess){
+  if(userGuess > actualNum){
+    return "That is too high!"
+  } else if (userGuess < actualNum){
+    return "That is too low!"
+  } else if (userGuess === actualNum){
+    return "BOOM!"
+  }
+}
+
+function reset(){
+  document.getElementById('input').value = "";
+  document.querySelector('.player-guess').remove();
+}
+
+function clearField(){
+  document.getElementById('input').value = "";
+}
+
+function guessToUI(){
+  userGuess = document.getElementById('input').value;
+  document.querySelector('.player-guess').innerHTML = `<center><h1>Your last guess was</h1><h2>${userGuess}</h2><h3>${findCorrectGuess(parseInt(actualNum),parseInt(userGuess))}</h3></center>`
+}
+
+
+document.getElementById('lightup').addEventListener('click', guessToUI);
+document.getElementById('clear').addEventListener('click', clearField);
+document.getElementById('reset').addEventListener('click', reset);
