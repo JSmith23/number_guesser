@@ -19,12 +19,20 @@
     <header>
       <h1><center><span id="num">Number</span> <span id="guess">Guesser</span></center></h1>
     </header>
-    <form action="/action_page.php">
-      <input type="text" name="fname" placeholder="Enter your guess"><br>
-      <input type="submit" value="Guess">
-      <input type="submit" value="Clear">
-    </form>
+    <div class="center-block">
+        <input id="input" type="number" name="fname" placeholder="Enter your guess"><br>
+        <button id="guesser" class="btn">Guess</button>
+        <button id ="clear" class="btn">Clear</button>
+      </form>
+    </div>
+    <div id="player-guess">
 
-    <script src="" async defer></script>
+    </div>
+
+    <footer class="bottom">
+      <button id='reset' class="btn">Reset</button>
+    </footer>
+
+    <script src="script.js" async defer></script>
   </body>
 </html>

@@ -2,6 +2,63 @@ header {
   background-color: #404041;
   padding: 30px;
 }
+h1 {
+  color: #404041;
+}
+
+h2 {
+  color: #EB008B;
+  font-size: 150px;
+  margin: 10px;
+}
+
+h3 {
+    color: #404041;
+    font-size: 40px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 30px;
+    line-height: 3;
+    font-weight: 100;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.btn {
+  background-color: #929497;
+  border: none;
+  color: #ffffff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 35px;
+  width: 225px;
+  margin: 30px;
+}
+
+.center-block {
+  text-align: center;
+  padding: 30px;
+}
+
+#input {
+  height: 50px;
+  width: 500px;
+}
+
+#guesser:hover {
+  background-color: #EB008B;
+  color: #ffffff
+}
 
 #num {
   color: #ED458B;
