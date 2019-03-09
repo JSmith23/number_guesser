@@ -55,7 +55,7 @@ input::-webkit-input-placeholder {
   width: 500px;
 }
 
-#lightup:hover {
+#guesser:hover {
   background-color: #EB008B;
   color: #ffffff
 }

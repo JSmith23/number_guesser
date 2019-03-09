@@ -1,44 +1,68 @@
-// Display the user’s most recent guess
-// Display results and feedback:
-// If their guess is too high, it should display: “That is too high”
-// If their guess is too low, it should display: “That is too low”
-// If the guess is correct, it should display: “BOOM!”
-// The input field should only accept numerical entries, within the defined min and max range
-// The application should display an error message if the guess is not a number(e.g.parseInt() returns NaN).
-// The application should display an error if the guess is outside of the range of possible answers.
-// The clear button should be disabled if there is nothing to clear.
-// The reset button should be disabled if there is nothing to reset.
-let actualNum = randomNumber();
+var actualNum = randomNumber();
 
-function randomNumber(){
+function randomNumber() {
   return Math.floor(Math.random() * 101);
 }
 
-function findCorrectGuess(actualNum,userGuess){
-  if(userGuess > actualNum){
+function findCorrectGuess(actualNum, userGuess) {
+  actualNum = parseInt(actualNum);
+  userGuess = parseInt(userGuess);
+  if (userGuess <= 0 || userGuess > 100) {
+    return "Error: Enter a number between 1 and 100"
+  } else if (isNaN(userGuess)) {
+    return "Error: Insert an actual number."
+  } else if (userGuess > actualNum) {
     return "That is too high!"
-  } else if (userGuess < actualNum){
+  } else if (userGuess < actualNum) {
     return "That is too low!"
-  } else if (userGuess === actualNum){
+  } else if (userGuess === actualNum) {
     return "BOOM!"
   }
 }
 
-function reset(){
+function reset() {
+  actualNum = randomNumber();
   document.getElementById('input').value = "";
-  document.querySelector('.player-guess').remove();
+  el = document.getElementById('player-guess')
+  el.removeChild(el.firstChild)
 }
 
-function clearField(){
+function clearField() {
   document.getElementById('input').value = "";
 }
 
-function guessToUI(){
-  userGuess = document.getElementById('input').value;
-  document.querySelector('.player-guess').innerHTML = `<center><h1>Your last guess was</h1><h2>${userGuess}</h2><h3>${findCorrectGuess(parseInt(actualNum),parseInt(userGuess))}</h3></center>`
+function guessToUI() {
+  let userGuess = document.getElementById('input').value;
+  document.getElementById('player-guess').innerHTML = `<center><h1>Your last guess was</h1><h2>${userGuess}</h2><h3>${findCorrectGuess(actualNum,userGuess)}</h3></center>`
+}
+
+function disable() {
+  let guessInput = document.getElementById('input').value;
+  if (guessInput == '') {
+    document.getElementById('clear').disabled = true;
+  } else {
+    document.getElementById('clear').disabled = false;
+  }
+}
+
+function disableReset(){
+  let el = document.getElementById('input').value;
+  let elGuess = document.getElementById('player-guess').value;
+  if(el == '' && elGuess == ''){
+    document.getElementById('clear').disabled = true;
+  } else{
+    document.getElementById('clear').disabled = false;
+  }
 }
 
 
-document.getElementById('lightup').addEventListener('click', guessToUI);
-document.getElementById('clear').addEventListener('click', clearField);
-document.getElementById('reset').addEventListener('click', reset);
+function listeners() {
+  document.getElementById('guesser').addEventListener('click', guessToUI);
+  document.getElementById('clear').addEventListener('click', clearField);
+  document.getElementById('reset').addEventListener('click', reset);
+  document.getElementById('input').addEventListener('input', disable);
+  document.getElementById('reset').addEventListener('click', disableReset);
+}
+
+
+listeners();
