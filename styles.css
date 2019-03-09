@@ -55,6 +55,16 @@ input::-webkit-input-placeholder {
   width: 500px;
 }
 
+#max {
+  height: 30px;
+  width: 150px;
+}
+
+#min {
+  height: 30px;
+  width: 150px;
+}
+
 #guesser:hover {
   background-color: #EB008B;
   color: #ffffff
